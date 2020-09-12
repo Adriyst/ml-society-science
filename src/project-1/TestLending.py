@@ -1,5 +1,7 @@
 import pandas
 
+PATH = "../../data/credit/D_valid.csv"
+
 ## Set up for dataset
 features = ['checking account balance', 'duration', 'credit history',
             'purpose', 'amount', 'savings', 'employment', 'installment',
@@ -9,7 +11,7 @@ features = ['checking account balance', 'duration', 'credit history',
 target = 'repaid'
 #df = pandas.read_csv('../../data/credit/german.data', sep=' ',
 #                     names=features+[target])
-df = pandas.read_csv('D_valid.csv', sep=' ',
+df = pandas.read_csv(PATH, sep=' ',
                      names=features+[target])
 #df = pa
 
@@ -49,7 +51,9 @@ def test_decision_maker(X_test, y_test, interest_rate, decision_maker):
 
 ### Setup model
 import random_banker # this is a random banker
-decision_maker = random_banker.RandomBanker()
+import name_banker
+#decision_maker = random_banker.RandomBanker()
+decision_maker = name_banker.NameBanker()
 #import aleksaw_banker
 #decision_maker = aleksaw_banker.AlexBanker()
 
