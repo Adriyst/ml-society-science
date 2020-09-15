@@ -1,10 +1,11 @@
 import numpy as np
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
 
 
-MODEL = MultinomialNB()
+MODEL = LogisticRegression(max_iter=150)
 
-class BayesBanker:
+class LogRegBanker:
 
 
     def __init__(self):
@@ -15,6 +16,8 @@ class BayesBanker:
     # probabilities
     def fit(self, X, y):
         self.data = [X, y]
+        self.scaler = StandardScaler().fit(X)
+        X = self.scaler.transform(X)
         self.model.fit(X, y)
 
 
@@ -25,7 +28,8 @@ class BayesBanker:
 
     # Predict the probability of failure for a specific person with data x
     def predict_proba(self, x):
-        return self.model.predict_proba(np.array(x).reshape(1, -1))
+        x = self.scaler.transform(np.array(x).reshape(1,-1))
+        return self.model.predict_proba(np.array(x))
 
     # THe expected utility of granting the loan or not. Here there are two actions:
     # action = 0 do not grant the loan
