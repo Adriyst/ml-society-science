@@ -2,12 +2,10 @@ import numpy as np
 from sklearn.naive_bayes import MultinomialNB
 
 
-MODEL = MultinomialNB()
-
 class NameBanker:
 
 
-    def __init__(self):
+    def __init__(self, MODEL):
         self.model = MODEL
     
     # Fit the model to the data.  You can use any model you like to do

@@ -58,6 +58,7 @@ def test_decision_maker(X_test, y_test, interest_rate, decision_maker):
 import random_banker # this is a random banker
 import name_banker
 #decision_maker = random_banker.RandomBanker()
+
 decision_maker = name_banker.NameBanker()
 #import aleksaw_banker
 #decision_maker = aleksaw_banker.AlexBanker()
@@ -66,7 +67,7 @@ interest_rate = 0.017
 
 ### Do a number of preliminary tests by splitting the data in parts
 from sklearn.model_selection import train_test_split
-n_tests = 500
+n_tests = 100
 utility = 0
 investment_return = 0
 for iter in range(n_tests):
