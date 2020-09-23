@@ -1,6 +1,8 @@
+### NOT THE ACTUAL FILE USED FOR TESTING. SEE JUPYTER NOTEBOOK!
+
 import pandas
 from sklearn.preprocessing import StandardScaler
-
+from sklearn.naive_bayes import MultinomialNB
 PATH = "./data/credit/D_valid.csv"
 
 ## Set up for dataset
@@ -59,7 +61,7 @@ import random_banker # this is a random banker
 import name_banker
 #decision_maker = random_banker.RandomBanker()
 
-decision_maker = name_banker.NameBanker()
+decision_maker = name_banker.NameBanker(MultinomialNB())
 #import aleksaw_banker
 #decision_maker = aleksaw_banker.AlexBanker()
 
